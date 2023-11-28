@@ -1,2 +1,18 @@
 [2023-11-26 20:09:36] [ INFO ] [ClinicaOdontologicaProyectoApplication:15] logeando
 [2023-11-26 20:09:52] [ INFO ] [ClinicaOdontologicaProyectoApplication:15] logeando
+[2023-11-26 21:51:47] [ INFO ] [ClinicaOdontologicaProyectoApplication:13] Iniciando Logger desde main
+[2023-11-26 23:52:40] [ INFO ] [ClinicaOdontologicaProyectoApplication:13] Iniciando Logger desde main
+[2023-11-27 17:10:07] [ INFO ] [OdontologoServiceTest:35] Iniciando test de Actualizar
+[2023-11-27 17:10:08] [ INFO ] [OdontologoServiceTest:23] Iniciando test de Guardado
+[2023-11-27 17:10:08] [ INFO ] [OdontologoServiceTest:60] Iniciando test de Eliminar
+[2023-11-27 17:41:12] [ INFO ] [OdontologoServiceTest:35] Iniciando test de Actualizar
+[2023-11-27 17:41:13] [ INFO ] [OdontologoServiceTest:23] Iniciando test de Guardado
+[2023-11-27 17:41:13] [ INFO ] [OdontologoServiceTest:60] Iniciando test de Eliminar
+[2023-11-27 17:41:21] [ INFO ] [ClinicaOdontologicaProyectoApplication:13] Iniciando Logger desde main
+[2023-11-27 17:46:32] [ INFO ] [ClinicaOdontologicaProyectoApplication:13] Iniciando Logger desde main
+[2023-11-27 20:40:14] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-11-27 20:52:24] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-11-27 20:54:05] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-11-27 20:55:27] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-11-27 20:57:35] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-11-27 21:18:02] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main

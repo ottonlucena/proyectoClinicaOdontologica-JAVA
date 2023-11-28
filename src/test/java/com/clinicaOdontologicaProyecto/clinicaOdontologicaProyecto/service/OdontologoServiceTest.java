@@ -1,6 +1,7 @@
 package com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.service;
 
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.entitty.Odontologo;
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,11 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class OdontologoServiceTest {
+
+    Logger logger = Logger.getLogger(OdontologoServiceTest.class);
     @Autowired
     OdontologoService odontologoService;
 
     @Test
     public void testGuardarOdontologo(){
+        logger.info("Iniciando test de Guardado");
         Odontologo odontologo=new Odontologo(444,"Otton", "Lucena");
         odontologoService.guardarOdontologo(odontologo);
 
@@ -28,6 +32,8 @@ class OdontologoServiceTest {
 
     @Test
     public void testActualizarOdontolgoo(){
+        logger.info("Iniciando test de Actualizar");
+
         Odontologo odontologoInicial = new Odontologo(333, "Otton", "Lucena");
         odontologoService.guardarOdontologo(odontologoInicial);
 
@@ -51,6 +57,8 @@ class OdontologoServiceTest {
 
     @Test
     public void testEliminarOdontologo(){
+        logger.info("Iniciando test de Eliminar");
+
         Odontologo odontologoInicial = new Odontologo(333, "Otton", "Lucena");
         odontologoService.guardarOdontologo(odontologoInicial);
 
