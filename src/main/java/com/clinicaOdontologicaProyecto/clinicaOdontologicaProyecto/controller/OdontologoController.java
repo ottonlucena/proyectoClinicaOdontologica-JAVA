@@ -23,8 +23,8 @@ public class OdontologoController {
 
     @PostMapping
     public ResponseEntity<Odontologo> guardarOdontologo(@RequestBody Odontologo odontologo){
-        System.out.println(odontologo);
-        return ResponseEntity.ok(odontologoService.guardarOdontologo(odontologo));
+            return ResponseEntity.ok(odontologoService.guardarOdontologo(odontologo));
+
     }
 
     @PutMapping("/actualizar")

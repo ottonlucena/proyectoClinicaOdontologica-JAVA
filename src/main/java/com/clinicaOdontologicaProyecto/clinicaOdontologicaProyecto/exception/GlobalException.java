@@ -1,10 +1,13 @@
 package com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.exception;
 
 import org.apache.log4j.Logger;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import javax.validation.ConstraintViolationException;
 
 @ControllerAdvice
 public class GlobalException {
@@ -24,4 +27,17 @@ public class GlobalException {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(badRequestException.getMessage());
     }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<String> handleValidationException(ConstraintViolationException e) {
+
+        return new ResponseEntity<>("Error de validación: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<String> handleIntegrityConstraintViolation(DataIntegrityViolationException e) {
+        return new ResponseEntity<>("Error de violación de clave única: " + e.getMessage(), HttpStatus.CONFLICT);
+    }
+
+
 }

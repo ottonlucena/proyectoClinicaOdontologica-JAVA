@@ -4,28 +4,45 @@ document.addEventListener("DOMContentLoaded", function () {
   //creamos uns constante document d
   const d = document;
   //seleccionamos mediante el id el formulario
-  const formulario = d.querySelector("#agregar_odontologo");
+  const formulario = d.querySelector("#form_pacientes");
 
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     //capturamos los value de los input
     const nombre = d.querySelector("#nombre").value;
     const apellido = d.querySelector("#apellido").value;
-    const matricula = d.querySelector("#matricula").value;
+    const cedula = d.querySelector("#cedula").value;
+    const fechaIngreso = d.querySelector("#fecha").value;
+    const email = d.querySelector("#email").value;
+    const calle = d.querySelector("#calle").value;
+    const numero = d.querySelector("#numero").value;
+    const localidad = d.querySelector("#localidad").value;
+    const provincia = d.querySelector("#provincia").value;
+
+    console.log(fechaIngreso)
 
     //Validamos que nombre y apellido sean de tipo String
-    if (!/^[a-zA-Z]+$/.test(nombre) || !/^[a-zA-Z]+$/.test(apellido)) {
-          respuesta("Los campos nombre y apellido deben contener solo letras", "warning");
+    if (!/^[a-zA-Z]+$/.test(nombre) || !/^[a-zA-Z]+$/.test(apellido) || !/^[a-zA-Z]+$/.test(calle) || !/^[a-zA-Z]+$/.test(localidad) || !/^[a-zA-Z]+$/.test(provincia)) {
+          respuesta("Los campos nombre, apellido, calle, localidad y provincia deben contener solo letras", "warning");
           return;
         }
 
     const formData = {
       nombre: nombre,
       apellido: apellido,
-      matricula: matricula,
+      cedula: cedula,
+      fechaIngreso: fechaIngreso,
+      email: email,
+      domicilio:{
+        calle: calle,
+        numero: numero,
+        localidad: localidad,
+        provincia: provincia
+      }
+
     };
 
-    const url = "/odontologo";
+    const url = "/paciente";
     const settings = {
       method: "POST",
       headers: {
@@ -48,7 +65,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function resetInput(){
         document.querySelector("#nombre").value = "";
         document.querySelector("#apellido").value = "";
-        document.querySelector("#matricula").value = ""
+        document.querySelector("#cedula").value = "";
+        document.querySelector("#fecha").value = "";
+        document.querySelector("#email").value = "";
+        document.querySelector("#calle").value = "";
+        document.querySelector("#numero").value = "";
+        document.querySelector("#localidad").value = "";
+        document.querySelector("#provincia").value = "";
+
     }
 
     fetch(url, settings)
@@ -60,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
           })
           .then((data) => {
             console.log(data);
-            respuesta(`Odontologo nombre: ${data.nombre}, matricula: ${data.matricula} agregado correctamente.`, "success")
+            respuesta(`Paciente nombre: ${data.nombre}, email: ${data.email} agregado correctamente.`, "success")
             resetInput();
           })
           .catch((error) => {

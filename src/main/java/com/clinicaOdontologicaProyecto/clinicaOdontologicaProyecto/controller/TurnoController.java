@@ -5,6 +5,7 @@ import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.entitty.Odont
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.entitty.Paciente;
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.entitty.Turno;
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.exception.BadRequestException;
+import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.exception.ResorceNotFoundException;
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.service.OdontologoService;
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.service.PacienteService;
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.service.TurnoService;
@@ -60,13 +61,15 @@ public class TurnoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarTurnoPorId(@PathVariable Long id){
+    public ResponseEntity<String> eliminarTurnoPorId(@PathVariable Long id) throws ResorceNotFoundException {
         Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoPorId(id);
+
         if(turnoBuscado.isPresent()){
             turnoService.eliminarTurno(id);
             return ResponseEntity.ok("Turno con id: " + id + " eliminado.");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se pudo encontrar el id + " + id);
+        throw new ResorceNotFoundException("Turno con id: " + id + " no encontrado");
+        //return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se pudo encontrar el id + " + id);
     }
 
     @PutMapping

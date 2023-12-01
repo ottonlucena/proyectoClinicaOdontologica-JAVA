@@ -72,38 +72,61 @@
 <h1 class="text-center">Agregar Paciente</h1>
 
 <section class="container">
-    <form class="row g-3 needs-validation" novalidate>
+    <form class="row g-3 needs-validation" id="form_pacientes" novalidate>
         <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">Nombre</label>
+            <label for="nombre" class="form-label">Nombre</label>
             <input
                     type="text"
                     class="form-control"
-                    id="validationCustom01"
-                    value="Mark"
+                    id="nombre"
+                    placeholder="Otton"
                     required
             />
             <div class="valid-feedback">Looks good!</div>
         </div>
         <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">Apellido</label>
+            <label for="apellido" class="form-label">Apellido</label>
             <input
                     type="text"
                     class="form-control"
-                    id="validationCustom02"
-                    value="Otto"
+                    id="apellido"
+                    placeholder="Lucena"
                     required
             />
             <div class="valid-feedback">Looks good!</div>
         </div>
         <div class="col-md-4">
-            <label for="validationCustomUsername" class="form-label">Email</label>
+            <label for="cedula" class="form-label">Cedula</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="cedula"
+                    placeholder="1234K"
+                    required
+            />
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="col-md-4">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input
+                    type="date"
+                    class="form-control"
+                    id="fecha"
+                    placeholder="2023-11-11"
+                    required
+            />
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="col-md-4">
+            <label for="email" class="form-label">Email</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <span class="input-group-text" id="@">@</span>
                 <input
                         type="text"
                         class="form-control"
-                        id="validationCustomUsername"
+                        id="email"
                         aria-describedby="inputGroupPrepend"
+                        placeholder="email@example.com"
                         required
                 />
                 <div class="invalid-feedback">Please choose a username.</div>
@@ -111,41 +134,41 @@
         </div>
         <label class="text-center fw-bold">Domicilio</label>
         <div class="col-md-6">
-            <label for="validationCustom03" class="form-label">Calle</label>
+            <label for="calle" class="form-label">Calle</label>
             <input
                     type="text"
                     class="form-control"
-                    id="validationCustom03"
+                    id="calle"
                     required
             />
             <div class="invalid-feedback">Please provide a valid city.</div>
         </div>
         <div class="col-md-6">
-            <label for="validationCustom03" class="form-label">Número</label>
+            <label for="numero" class="form-label">Número</label>
             <input
                     type="text"
                     class="form-control"
-                    id="validationCustom03"
+                    id="numero"
+                    localidad
+            />
+            <div class="invalid-feedback">Please provide a valid city.</div>
+        </div>
+        <div class="col-md-6">
+            <label for="localidad" class="form-label">Localidad</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="localidad"
                     required
             />
             <div class="invalid-feedback">Please provide a valid city.</div>
         </div>
         <div class="col-md-6">
-            <label for="validationCustom03" class="form-label">Localidad</label>
+            <label for="provincia" class="form-label">Provincia</label>
             <input
                     type="text"
                     class="form-control"
-                    id="validationCustom03"
-                    required
-            />
-            <div class="invalid-feedback">Please provide a valid city.</div>
-        </div>
-        <div class="col-md-6">
-            <label for="validationCustom03" class="form-label">Provincia</label>
-            <input
-                    type="text"
-                    class="form-control"
-                    id="validationCustom03"
+                    id="provincia"
                     required
             />
             <div class="invalid-feedback">Please provide a valid city.</div>
@@ -157,6 +180,9 @@
             </button>
         </div>
     </form>
+    <div id="respuesta" style="display:none; margin-top:10px">
+
+    </div>
 </section>
 
 <script
@@ -164,5 +190,6 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"
 ></script>
+<script src="./js/post_paciente.js"></script>
 </body>
 </html>

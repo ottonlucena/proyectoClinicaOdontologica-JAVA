@@ -1,8 +1,11 @@
 package com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.entitty;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -13,7 +16,9 @@ public class Paciente {
     private Long id;
     private String nombre;
     private String apellido;
+    @Column(unique = true)
     private String cedula;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaIngreso;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "domicilio_id", referencedColumnName = "id")
@@ -113,5 +118,18 @@ public class Paciente {
                 ", domicilio=" + domicilio +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Paciente paciente = (Paciente) o;
+        return Objects.equals(id, paciente.id) && Objects.equals(cedula, paciente.cedula) && Objects.equals(email, paciente.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, cedula, email);
     }
 }

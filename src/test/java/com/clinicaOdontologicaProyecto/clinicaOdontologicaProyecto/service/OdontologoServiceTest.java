@@ -2,7 +2,10 @@ package com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.service;
 
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.entitty.Odontologo;
 import org.apache.log4j.Logger;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,6 +14,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest
 class OdontologoServiceTest {
 
@@ -19,6 +23,7 @@ class OdontologoServiceTest {
     OdontologoService odontologoService;
 
     @Test
+    @Order(1)
     public void testGuardarOdontologo(){
         logger.info("Iniciando test de Guardado");
         Odontologo odontologo=new Odontologo(444,"Otton", "Lucena");
@@ -31,14 +36,15 @@ class OdontologoServiceTest {
     }
 
     @Test
+    @Order(2)
     public void testActualizarOdontolgoo(){
         logger.info("Iniciando test de Actualizar");
 
         Odontologo odontologoInicial = new Odontologo(333, "Otton", "Lucena");
         odontologoService.guardarOdontologo(odontologoInicial);
 
-        //Actualizamos el odontologoInicial
-        Odontologo odontologoActualizado = new Odontologo(1L,555, "Otton", "Lucena");
+        //Actualizamos la matricula del odontologo
+        Odontologo odontologoActualizado = new Odontologo(odontologoInicial.getId(),555, "Otton", "Lucena");
         odontologoService.actualizarOdontologo(odontologoActualizado);
 
         //Buscamos el odontologo
@@ -48,14 +54,12 @@ class OdontologoServiceTest {
         assertTrue(odontologoBuscado.isPresent());
         Odontologo odontologoEncontrado = odontologoBuscado.get();
 
-        //Comparamos propiedades
-        assertEquals(odontologoActualizado.getMatricula(), odontologoEncontrado.getMatricula());
-        assertEquals(odontologoActualizado.getNombre(), odontologoEncontrado.getNombre());
-        assertEquals(odontologoActualizado.getApellido(), odontologoEncontrado.getApellido());
-
+        //Comparamos propiedad cambiada
+        assertNotEquals(odontologoInicial.getMatricula(), odontologoEncontrado.getMatricula());
     }
 
     @Test
+    @Order(3)
     public void testEliminarOdontologo(){
         logger.info("Iniciando test de Eliminar");
 

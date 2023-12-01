@@ -2,6 +2,7 @@ package com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.entitty;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name = "turnos")
@@ -73,5 +74,18 @@ public class Turno {
                 ", odontologo=" + odontologo +
                 ", fechaTurno=" + fechaTurno +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Turno turno = (Turno) o;
+        return Objects.equals(id, turno.id) && Objects.equals(paciente, turno.paciente) && Objects.equals(odontologo, turno.odontologo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, paciente, odontologo);
     }
 }

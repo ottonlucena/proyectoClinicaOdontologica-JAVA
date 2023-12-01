@@ -1,6 +1,9 @@
 package com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.entitty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -13,7 +16,11 @@ public class Odontologo {
     private Long id;
     @Column(unique = true)
     private int matricula;
+    @NotBlank(message = "El nombre no debe estar vacio")
+    @NotNull(message = "El nombre no debe ser null")
     private String nombre;
+    @NotBlank(message = "El apellido no debe estar vacio")
+    @NotNull(message = "El apellido no debe ser null")
     private String apellido;
 
     @OneToMany(mappedBy = "odontologo", fetch = FetchType.LAZY)
