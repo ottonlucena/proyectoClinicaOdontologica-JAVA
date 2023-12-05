@@ -40,7 +40,7 @@ class TurnoServiceTest {
     @Test
     @Order(1)
     public void testGuardarTurno(){
-        logger.info("Iniciando test de Turno");
+        logger.info("Iniciando test de Guardar turno");
 
         //Guardamos Paciente
         Paciente paciente= new Paciente("Otton", "Lucena", "123k", LocalDate.of(2023,11,28),new Domicilio("calle",123,"localidad","provincia"), "hola@gmail.com");
@@ -54,7 +54,7 @@ class TurnoServiceTest {
 
         System.out.println(turno);
 
-        // Ejecutar el método de servicio
+        // Ejecutar el método de servicio para guardar el turno
         TurnoDTO result = turnoService.guardarTurno(turno);
 
         // Verificar el resultado
@@ -68,6 +68,39 @@ class TurnoServiceTest {
         assertEquals(turno.getPaciente().getId(), turnoGuardado.get().getPaciente().getId());
         assertEquals(turno.getOdontologo().getId(), turnoGuardado.get().getOdontologo().getId());
         assertEquals(turno.getFechaTurno(), turnoGuardado.get().getFechaTurno());
+
+    }
+    @Test
+    @Order(2)
+    public void testEliminarTurno(){
+        logger.info("Iniciando test de Eliminar Turno");
+
+        //Guardamos Paciente
+        Paciente paciente= new Paciente("Otton", "Jose", "12345k", LocalDate.of(2023,11,28),new Domicilio("calle",123,"localidad","provincia"), "hola2@gmail.com");
+        Paciente pacienteGuardado = pacienteService.guardarPaciente(paciente);
+
+        //Guardamos Odontologo
+        Odontologo odontologo=new Odontologo(3244,"Otton", "Lucena");
+        Odontologo odontologoGuardado = odontologoService.guardarOdontologo(odontologo);
+
+        Turno turno = new Turno(pacienteGuardado, odontologoGuardado, LocalDate.now());
+
+        System.out.println(turno);
+
+        // Ejecutar el método de servicio para guardar el turno
+        TurnoDTO result = turnoService.guardarTurno(turno);
+
+        //verificamos que el turno guardado no contenga el ID null
+        assertNotNull(result.getId());
+
+        //Eliminarmos el turno
+        turnoService.eliminarTurno(result.getId());
+
+        //Verificamos que la lista de turnos no contenga el turno guardado
+        List<TurnoDTO> turnoDTOList = turnoService.buscarTodos();
+        assertFalse(turnoDTOList.contains(result));
+
+
 
     }
 

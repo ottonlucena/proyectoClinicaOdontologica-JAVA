@@ -74,82 +74,24 @@
         </div>
       </div>
     </nav>
-    <h1 class="text-center">Lista Pacientes</h1>
+    <h1 class="text-center">Agregar Turno:</h1>
 
     <section class="container">
-      <table class="table border border-black">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Cedula</th>
-            <th scope="col">Fecha de Ingreso</th>
-            <th scope="col">Email</th>
-            <th scope="col">Calle</th>
-            <th scope="col">Número</th>
-            <th scope="col">Localidad</th>
-            <th scope="col">Provincia</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </section>
-    <section id="update_paciente" style="display: none" class="container">
-      <form id="update-paciente">
-        <div class="col-md-4">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" required />
+      <form action="/turnos" id="agregar_turno">
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="paciente_id" />
+          <label for="paciente_id">ID Paciente:</label>
         </div>
-        <div class="col-md-4">
-          <label for="apellido" class="form-label">Apellido</label>
-          <input type="text" class="form-control" id="apellido" required />
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="odontologo_id" />
+          <label for="odontologo_id">ID Odontologo:</label>
         </div>
-        <div class="col-md-4">
-          <label for="cedula" class="form-label">Cedula</label>
-          <input type="text" class="form-control" id="cedula" required />
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" id="turno_fecha" />
+          <label for="turno_fecha">Fecha:</label>
         </div>
-        <div class="col-md-4">
-          <label for="fecha" class="form-label">Fecha</label>
-          <input type="date" class="form-control" id="fecha" required />
-        </div>
-        <div class="col-md-4">
-          <label for="email" class="form-label">Email</label>
-          <div class="input-group has-validation">
-            <span class="input-group-text" id="@">@</span>
-            <input
-              type="text"
-              class="form-control"
-              id="email"
-              aria-describedby="inputGroupPrepend"
-              required
-            />
-          </div>
-        </div>
-        <label class="text-center fw-bold">Domicilio</label>
-        <div class="col-md-6">
-          <label for="calle" class="form-label">Calle</label>
-          <input type="text" class="form-control" id="calle" required />
-        </div>
-        <div class="col-md-6">
-          <label for="numero" class="form-label">Número</label>
-          <input type="text" class="form-control" id="numero" localidad />
-        </div>
-        <div class="col-md-6">
-          <label for="localidad" class="form-label">Localidad</label>
-          <input type="text" class="form-control" id="localidad" required />
-        </div>
-        <div class="col-md-6">
-          <label for="provincia" class="form-label">Provincia</label>
-          <input type="text" class="form-control" id="provincia" required />
-        </div>
-
         <div class="text-center">
-          <button
-            class="btn btn-primary fs-5 fw-bold"
-            id="buttonEnviar"
-            type="submit"
-          >
+          <button class="btn btn-primary fs-5 fw-bold" type="submit">
             Enviar
           </button>
         </div>
@@ -162,8 +104,8 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/paciente/delete_paciente.js"></script>
-    <script src="./js/paciente/put_paciente.js"></script>
+    <script src="./js/turno/post_turno.js"></script>
     <script src="./js/paciente/get_paciente.js"></script>
+    <script src="./js/odontologo/get_odontologo.js"></script>
   </body>
 </html>
