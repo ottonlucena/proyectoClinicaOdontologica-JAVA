@@ -3,6 +3,7 @@ function actualizarPaciente(data) {
   const d = document;
 
   form.addEventListener("submit", function (e) {
+    //Prevenimos su comportamiento por default
     e.preventDefault();
 
     //Creamos el formData
@@ -21,7 +22,7 @@ function actualizarPaciente(data) {
       },
     };
 
-    console.log(formData);
+    //console.log(formData);
 
     const url = "/paciente/actualizar";
     const settings = {
@@ -37,7 +38,7 @@ function actualizarPaciente(data) {
         return response.text();
       })
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         window.location.href = "http://localhost:8080/pacientes.html";
       })
       .catch((error) => {

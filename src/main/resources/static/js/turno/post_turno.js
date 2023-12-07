@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Tu código aquí se ejecutará cuando el DOM esté completamente cargado
-  console.log("El DOM ha sido completamente cargado.");
   //creamos uns constante document d
   const d = document;
   //seleccionamos mediante el id el formulario

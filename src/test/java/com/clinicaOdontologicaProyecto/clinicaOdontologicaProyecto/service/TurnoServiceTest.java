@@ -100,6 +100,45 @@ class TurnoServiceTest {
         List<TurnoDTO> turnoDTOList = turnoService.buscarTodos();
         assertFalse(turnoDTOList.contains(result));
 
+    }
+
+    @Test
+    @Order(3)
+    public void testActualizarTurno(){
+        logger.info("Iniciando test de Actualizar Turno");
+
+        //Guardamos Paciente
+        Paciente paciente= new Paciente("Otton", "Gonzalez", "123456k", LocalDate.of(2023,11,28),new Domicilio("calle",123,"localidad","provincia"), "hola3@gmail.com");
+        Paciente pacienteGuardado = pacienteService.guardarPaciente(paciente);
+
+        //Guardamos Odontologo
+        Odontologo odontologo=new Odontologo(32434,"Otton", "Jose");
+        Odontologo odontologoGuardado = odontologoService.guardarOdontologo(odontologo);
+
+        Turno turno = new Turno(pacienteGuardado, odontologoGuardado, LocalDate.now());
+
+        System.out.println(turno);
+
+        // Ejecutar el método de servicio para guardar el turno
+        TurnoDTO result = turnoService.guardarTurno(turno);
+
+        //verificamos que el turno guardado no contenga el ID null
+        assertNotNull(result.getId());
+
+        // Actualizamos la fecha del turno
+        LocalDate nuevaFecha = LocalDate.now().plusDays(1);
+        result.setFechaTurno(nuevaFecha);
+        turnoService.actualizarTurno(result);
+
+        // Verificamos que la actualización se realizó correctamente
+        Optional<Turno> turnoActualizado = turnoRepository.findById(result.getId());
+        assertTrue(turnoActualizado.isPresent());
+        System.out.println(turnoActualizado);
+
+        assertEquals(nuevaFecha, turnoActualizado.get().getFechaTurno(),
+                "La fecha del turno no se actualizó correctamente");
+
+
 
 
     }

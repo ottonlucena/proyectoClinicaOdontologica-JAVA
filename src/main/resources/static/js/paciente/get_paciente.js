@@ -110,6 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
     .catch((error) => {
-      console.log(error);
+      console.log("Error al cargar pacientes" + error);
     });
 });

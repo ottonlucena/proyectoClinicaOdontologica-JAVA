@@ -34,10 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
           buttonId.addEventListener("click", function () {
             const update = document.querySelector("#update_turno");
             update.style = "block";
-            const data = {
-              id: turno.id,
-            };
-            //actualizarOdontologo(data);
+            const data = turno.id;
+            actualizarTurno(data);
           });
           idCell.appendChild(buttonId);
 
@@ -54,11 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
           deletCell.id = "delete_id";
           deletCell.textContent = "DELETE";
           deletCell.className = "btn btn-danger rounded-pill";
-
-          // deletCell.addEventListener("click", (e) => {
-          //deleteCell(turno.id, "/odontologo/eliminar");
-          //  // window.location.reload();
-          //});
+          deletCell.addEventListener("click", (e) => {
+            //console.log("click");
+            eliminarTurno(turno.id);
+          });
 
           newRow.appendChild(idCell);
           newRow.appendChild(id_paciente);

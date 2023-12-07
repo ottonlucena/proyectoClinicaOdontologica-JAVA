@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resetInput();
       })
       .catch((error) => {
-        console.log("Error", error);
+        console.log("Error al cargar un odontologo", error);
         respuesta("Error, intenta nuevamente", "danger");
         resetInput();
       });

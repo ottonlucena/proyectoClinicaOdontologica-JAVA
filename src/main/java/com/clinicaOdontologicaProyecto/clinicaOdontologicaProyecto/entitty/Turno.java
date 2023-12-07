@@ -81,11 +81,11 @@ public class Turno {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Turno turno = (Turno) o;
-        return Objects.equals(id, turno.id) && Objects.equals(paciente, turno.paciente) && Objects.equals(odontologo, turno.odontologo);
+        return Objects.equals(id, turno.id) && Objects.equals(paciente, turno.paciente) && Objects.equals(odontologo, turno.odontologo) && Objects.equals(fechaTurno, turno.fechaTurno);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, paciente, odontologo);
+        return Objects.hash(id, paciente, odontologo, fechaTurno);
     }
 }

@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         for (let i = 0; i < data.length; i++) {
           const odontologo = data[i];
-          console.log(data);
+          //console.log(data);
 
           const newRow = document.createElement("tr");
 
@@ -72,6 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
     .catch((error) => {
-      console.log(error);
+      console.log("Error al traer lista de odontologo" + error);
     });
 });

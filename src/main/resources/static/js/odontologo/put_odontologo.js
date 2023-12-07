@@ -11,7 +11,7 @@ function actualizarOdontologo(data) {
       matricula: d.querySelector("#matricula").value,
     };
 
-    console.log(formData);
+    //console.log(formData);
     const url = "/odontologo/actualizar";
     const settings = {
       method: "PUT",
@@ -26,11 +26,11 @@ function actualizarOdontologo(data) {
         return response.text();
       })
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         //window.location.href = "http://localhost:8080/pacientes.html";
       })
       .catch((error) => {
-        console.log("Error al actualizar", error);
+        console.log("Error al actualizar odontologo", error);
       });
   });
 }

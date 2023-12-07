@@ -1,5 +1,5 @@
 function deleteCell(id, url) {
-  console.log(url);
+  //console.log(url);
   if (url === "/paciente/eliminar") {
     url = "/paciente/eliminar/" + id;
   } else {
@@ -17,9 +17,9 @@ function deleteCell(id, url) {
       return response.text();
     })
     .then((data) => {
-      console.log(data);
+      //console.log(data);
     })
     .catch((error) => {
-      console.log("Error al actualizar", error);
+      console.log("Error al eliminar paciente", error);
     });
 }

@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Tu código aquí se ejecutará cuando el DOM esté completamente cargado
-  console.log("El DOM ha sido completamente cargado.");
   //creamos uns constante document d
   const d = document;
   //seleccionamos mediante el id el formulario
@@ -22,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //convertimos el tipo de dato de calle a numero
     let convertirNumero = parseInt(numero);
 
-    //Validamos que nombre y apellido sean de tipo String
+    //Validamos que los campos nombre, apellido, localidad y provincia contengan solo letras
     if (
       !/^[a-zA-Z]+$/.test(nombre) ||
       !/^[a-zA-Z]+$/.test(apellido) ||
@@ -36,11 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    //Validamos que el campo calle contenga un numero entre el 0 y el 9
     if (!/^[0-9]+$/.test(convertirNumero)) {
       respuesta("El campo calle debe ser de tipo número");
       return;
     }
 
+    //Creamos la formData que se enviará mediante la petición POST
     const formData = {
       nombre: nombre,
       apellido: apellido,
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         respuesta(
           `Paciente nombre: ${data.nombre}, email: ${data.email} agregado correctamente.`,
           "success"
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resetInput();
       })
       .catch((error) => {
-        console.log("Error", error);
+        console.log("Error al enviar paciente", error);
         respuesta("Error, intenta nuevamente", "danger");
         resetInput();
       });
