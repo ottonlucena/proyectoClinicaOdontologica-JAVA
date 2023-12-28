@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,12 +28,12 @@ public class PacienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Paciente> guardarPaciente(@RequestBody Paciente paciente){
+    public ResponseEntity<Paciente> guardarPaciente(@RequestBody @Valid Paciente paciente){
         return ResponseEntity.ok(pacienteService.guardarPaciente(paciente));
     }
 
     @PutMapping("/actualizar")
-    public ResponseEntity<String> actualizarPaciente(@RequestBody Paciente paciente){
+    public ResponseEntity<String> actualizarPaciente(@RequestBody @Valid Paciente paciente){
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPacienteId(paciente.getId());
         if(pacienteBuscado.isPresent()){
             pacienteService.actualizarPaciente(paciente);

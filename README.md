@@ -4,12 +4,12 @@ Bienvenido al proyecto Clínica Odontológica, una aplicación Java que gestiona
 
 ## Estructura del Proyecto
 
-- **src/main/java/com/clinicaOdontologicaProyecto/clinicaOdontologicaProyecto/entity:** Contiene las entidades Java relacionadas con la base de datos.
-- **src/main/java/com/clinicaOdontologicaProyecto/clinicaOdontologicaProyecto/controller:** Controladores REST para las entidades (Paciente, Odontólogo, Turno).
-- **src/main/java/com/clinicaOdontologicaProyecto/clinicaOdontologicaProyecto/service:** Servicios para manejar la lógica de negocio.
-- **src/main/java/com/clinicaOdontologicaProyecto/clinicaOdontologicaProyecto/exception:** Clases de excepción personalizadas.
-- **src/main/java/com/clinicaOdontologicaProyecto/clinicaOdontologicaProyecto/security:** Configuración de seguridad.
-- **src/main/java/com/clinicaOdontologicaProyecto/clinicaOdontologicaProyecto/repository:** Configuración de interface extends de JpaRepository
+- **/entity:** Contiene las entidades Java relacionadas con la base de datos.
+- **/controller:** Controladores REST para las entidades (Paciente, Odontólogo, Turno).
+- **/service:** Servicios para manejar la lógica de negocio.
+- **/exception:** Clases de excepción personalizadas.
+- **/security:** Configuración de seguridad.
+- **/repository:** Configuración de interface extends de JpaRepository
 
 ## Dependencias
 

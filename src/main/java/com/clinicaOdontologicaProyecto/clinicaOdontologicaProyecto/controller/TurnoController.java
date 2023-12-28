@@ -14,9 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
@@ -31,7 +31,7 @@ public class TurnoController {
     }
 
     @PostMapping
-    public ResponseEntity<TurnoDTO> registrarTurno(@RequestBody Turno turno) throws BadRequestException{
+    public ResponseEntity<TurnoDTO> registrarTurno(@RequestBody @Valid Turno turno) throws BadRequestException{
         Optional<Paciente> pacienteOptional = pacienteService.buscarPacienteId(turno.getPaciente().getId());
         Optional<Odontologo> odontologoOptional = odontologoService.buscarOdontologoId(turno.getOdontologo().getId());
 
@@ -73,7 +73,7 @@ public class TurnoController {
     }
 
     @PutMapping
-    public ResponseEntity<String> actualizarTurno(@RequestBody TurnoDTO turnoDTO){
+    public ResponseEntity<String> actualizarTurno(@RequestBody @Valid TurnoDTO turnoDTO){
         Optional<TurnoDTO> turnoDTOOptional = turnoService.buscarTurnoPorId(turnoDTO.getId());
         if (turnoDTOOptional.isPresent()){
             Optional<Paciente> pacienteOptional = pacienteService.buscarPacienteId(turnoDTO.getPacienteId());

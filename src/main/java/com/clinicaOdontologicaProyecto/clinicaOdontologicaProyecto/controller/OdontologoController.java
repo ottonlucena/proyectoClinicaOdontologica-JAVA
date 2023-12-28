@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,13 +23,13 @@ public class OdontologoController {
     }
 
     @PostMapping
-    public ResponseEntity<Odontologo> guardarOdontologo(@RequestBody Odontologo odontologo){
+    public ResponseEntity<Odontologo> guardarOdontologo(@RequestBody @Valid Odontologo odontologo){
             return ResponseEntity.ok(odontologoService.guardarOdontologo(odontologo));
 
     }
 
     @PutMapping("/actualizar")
-    public ResponseEntity<String> actualizarOdontologo(@RequestBody Odontologo odontologo){
+    public ResponseEntity<String> actualizarOdontologo(@RequestBody @Valid Odontologo odontologo){
         Optional<Odontologo> odontologoBuscado=odontologoService.buscarOdontologoId(odontologo.getId());
         if (odontologoBuscado.isPresent()){
             odontologoService.actualizarOdontologo(odontologo);

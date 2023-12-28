@@ -29,7 +29,6 @@ public class Usuario implements UserDetails {
     public Usuario() {
     }
 
-    @Autowired
     public Usuario(String nombre, String userName, String email, String password, UsuarioRole usuarioRole) {
         this.nombre = nombre;
         this.userName = userName;

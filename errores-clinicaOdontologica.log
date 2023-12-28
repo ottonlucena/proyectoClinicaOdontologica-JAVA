@@ -581,3 +581,16 @@ java.lang.Throwable: err
 [2023-12-06 21:54:24] [ INFO ] [TurnoServiceTest:108] Iniciando test de Actualizar Turno
 [2023-12-06 21:56:19] [ INFO ] [TurnoServiceTest:108] Iniciando test de Actualizar Turno
 [2023-12-06 22:21:41] [ INFO ] [TurnoServiceTest:108] Iniciando test de Actualizar Turno
+[2023-12-23 23:00:19] [ INFO ] [TurnoServiceTest:108] Iniciando test de Actualizar Turno
+[2023-12-23 23:01:09] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-23 23:26:33] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-23 23:29:41] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 21:57:36] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 21:59:29] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 22:03:51] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 22:04:20] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 22:08:12] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 22:08:53] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 22:27:32] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 22:28:15] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 23:09:39] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
