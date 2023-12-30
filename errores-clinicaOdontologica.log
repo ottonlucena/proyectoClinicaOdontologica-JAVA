@@ -594,3 +594,42 @@ java.lang.Throwable: err
 [2023-12-27 22:27:32] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
 [2023-12-27 22:28:15] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
 [2023-12-27 23:09:39] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-27 23:43:53] [ INFO ] [OdontologoServiceTest:28] Iniciando test de Guardado
+[2023-12-27 23:43:53] [ INFO ] [OdontologoServiceTest:41] Iniciando test de Actualizar
+[2023-12-27 23:43:53] [ INFO ] [OdontologoServiceTest:64] Iniciando test de Eliminar
+[2023-12-27 23:43:53] [ INFO ] [PacienteServiceTest:30] Iniciando test de Guardado
+[2023-12-27 23:43:54] [ INFO ] [PacienteServiceTest:47] Iniciando test de Actualizar
+[2023-12-27 23:43:54] [ INFO ] [PacienteServiceTest:72] Iniciando test de Eliminar
+[2023-12-27 23:43:54] [ INFO ] [TurnoServiceTest:43] Iniciando test de Guardar turno
+[2023-12-27 23:43:54] [ INFO ] [TurnoServiceTest:76] Iniciando test de Eliminar Turno
+[2023-12-27 23:43:54] [ INFO ] [TurnoServiceTest:108] Iniciando test de Actualizar Turno
+[2023-12-27 23:45:31] [ INFO ] [OdontologoServiceTest:28] Iniciando test de Guardado
+[2023-12-27 23:45:31] [ INFO ] [OdontologoServiceTest:41] Iniciando test de Actualizar
+[2023-12-27 23:45:31] [ INFO ] [OdontologoServiceTest:64] Iniciando test de Eliminar
+[2023-12-27 23:45:31] [ INFO ] [PacienteServiceTest:30] Iniciando test de Guardado
+[2023-12-27 23:45:31] [ INFO ] [PacienteServiceTest:47] Iniciando test de Actualizar
+[2023-12-27 23:45:31] [ INFO ] [PacienteServiceTest:72] Iniciando test de Eliminar
+[2023-12-27 23:45:31] [ INFO ] [TurnoServiceTest:43] Iniciando test de Guardar turno
+[2023-12-27 23:45:31] [ INFO ] [TurnoServiceTest:76] Iniciando test de Eliminar Turno
+[2023-12-27 23:45:31] [ INFO ] [TurnoServiceTest:108] Iniciando test de Actualizar Turno
+[2023-12-27 23:46:24] [ INFO ] [OdontologoServiceTest:28] Iniciando test de Guardado
+[2023-12-27 23:46:24] [ INFO ] [OdontologoServiceTest:41] Iniciando test de Actualizar
+[2023-12-27 23:46:24] [ INFO ] [OdontologoServiceTest:64] Iniciando test de Eliminar
+[2023-12-29 20:57:43] [ INFO ] [OdontologoServiceTest:28] Iniciando test de Guardado
+[2023-12-29 20:57:43] [ INFO ] [OdontologoServiceTest:41] Iniciando test de Actualizar
+[2023-12-29 20:57:43] [ INFO ] [OdontologoServiceTest:64] Iniciando test de Eliminar
+[2023-12-29 20:57:55] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-29 22:14:02] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-29 22:31:13] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-29 22:38:22] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-29 22:51:45] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-29 23:13:46] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-29 23:18:02] [ ERROR] [GlobalException:26] No se puede registrar turno sin Paciente
+[2023-12-30 00:06:46] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-30 00:10:34] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-30 00:33:00] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-30 00:33:51] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-30 00:47:02] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-30 01:13:30] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-30 01:19:12] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main
+[2023-12-30 01:23:42] [ INFO ] [ClinicaOdontologicaProyectoApplication:12] Iniciando Logger desde main

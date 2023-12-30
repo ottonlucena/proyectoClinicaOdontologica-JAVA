@@ -71,4 +71,37 @@ Se han implementado controladores REST para gestionar Pacientes, Odontólogos y 
 - **Eliminar Turno por ID**
   /turnos/id
 
- 
+## Documentación de la API
+
+Esta API está documentada utilizando Swagger para facilitar la comprensión y prueba de los endpoints. A continuación, se proporcionan detalles sobre cómo acceder a la documentación Swagger.  
+
+### Swagger
+
+La documentación detallada de la API se encuentra en Swagger. Puede acceder a la documentación utilizando el siguiente enlace:
+  
+Swagger Documentación:
+[http://localhost:8080/v3/api-docs]  
+
+Swagger URL:
+(URL: http://localhost:8080/swagger-ui/index.html)  
+
+### Ejemplo de Uso de Anotaciones Swagger
+
+Aquí hay un ejemplo de cómo hemos utilizado anotaciones Swagger en nuestro código:
+
+```java
+ @Operation(summary = "Listar todos los odontologos.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Odontologos encontrados con exito.",
+            content = {
+                    @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = Odontologo.class))
+            }),
+            @ApiResponse(responseCode = "404", description = "Odontologos no encontrados.")
+    })
+    @GetMapping
+    public List<Odontologo> listarOdontologos(){
+        return odontologoService.listarOdontologos();
+    }
+
+

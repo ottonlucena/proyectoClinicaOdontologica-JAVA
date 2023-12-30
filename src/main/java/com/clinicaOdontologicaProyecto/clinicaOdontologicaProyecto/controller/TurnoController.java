@@ -9,6 +9,13 @@ import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.exception.Res
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.service.OdontologoService;
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.service.PacienteService;
 import com.clinicaOdontologicaProyecto.clinicaOdontologicaProyecto.service.TurnoService;
+import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +37,17 @@ public class TurnoController {
         this.odontologoService = odontologoService;
     }
 
+    @Operation(summary = "Agregar turno a la Base de Datos.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",description = "Turno agregado con exito.",
+                    content = {
+                            @Content(mediaType = "application/json",
+                                    schema = @Schema(implementation = Turno.class))
+                    }),
+            @ApiResponse(responseCode = "400", description = "Turno no registrado.")
+    })
     @PostMapping
-    public ResponseEntity<TurnoDTO> registrarTurno(@RequestBody @Valid Turno turno) throws BadRequestException{
+    public ResponseEntity<TurnoDTO> registrarTurno(@io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(schema = @Schema(implementation = TurnoDTO.class))) @Parameter(description = "Agregar solo el id de paciente, id de odontologo y la fecha", example = "pacienteId: 1, odontologoId: 1, fechaTurno: 2023-12-31") @Valid Turno turno) throws BadRequestException{
         Optional<Paciente> pacienteOptional = pacienteService.buscarPacienteId(turno.getPaciente().getId());
         Optional<Odontologo> odontologoOptional = odontologoService.buscarOdontologoId(turno.getOdontologo().getId());
 
@@ -45,12 +61,30 @@ public class TurnoController {
         //return ResponseEntity.notFound().build();
     }
 
+    @Operation(summary = "Buscar todos los turnos.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",description = "Turnos encontrados con exito.",
+                    content = {
+                            @Content(mediaType = "application/json",
+                                    schema = @Schema(implementation = TurnoDTO.class))
+                    }),
+            @ApiResponse(responseCode = "404", description = "Turnos no encontrado.")
+    })
     @GetMapping
     public ResponseEntity<List<TurnoDTO>> buscarTodos(){
         return ResponseEntity.ok(turnoService.buscarTodos());
 
     }
 
+    @Operation(summary = "Buscar turno por ID.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",description = "Turno encontrado con exito.",
+                    content = {
+                            @Content(mediaType = "application/json",
+                                    schema = @Schema(implementation = TurnoDTO.class))
+                    }),
+            @ApiResponse(responseCode = "404", description = "Turno no encontrado.")
+    })
     @GetMapping("/{id}")
     public ResponseEntity<TurnoDTO> buscarPorId(@PathVariable Long id){
         Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoPorId(id);
@@ -60,6 +94,15 @@ public class TurnoController {
         return ResponseEntity.notFound().build();
     }
 
+    @Operation(summary = "Eliminar turno por ID.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",description = "Turno eliminado con exito.",
+                    content = {
+                            @Content(mediaType = "application/json",
+                                    schema = @Schema(implementation = TurnoDTO.class))
+                    }),
+            @ApiResponse(responseCode = "404", description = "Turno no encontrado.")
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminarTurnoPorId(@PathVariable Long id) throws ResorceNotFoundException {
         Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoPorId(id);
@@ -72,6 +115,15 @@ public class TurnoController {
         //return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se pudo encontrar el id + " + id);
     }
 
+    @Operation(summary = "Actualizar turno.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",description = "Turno actualizado con exito.",
+                    content = {
+                            @Content(mediaType = "application/json",
+                                    schema = @Schema(implementation = TurnoDTO.class))
+                    }),
+            @ApiResponse(responseCode = "404", description = "Turno no encontrado.")
+    })
     @PutMapping
     public ResponseEntity<String> actualizarTurno(@RequestBody @Valid TurnoDTO turnoDTO){
         Optional<TurnoDTO> turnoDTOOptional = turnoService.buscarTurnoPorId(turnoDTO.getId());
